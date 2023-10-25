@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+
+android {
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdk.get().toInteger()
+        targetSdk libs.versions.targetSdk.get().toInteger()
+        versionCode libs.versions.versionCode.get().toInteger()
+        versionName libs.versions.versionName.get()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled false
+
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
+    }
+    kotlinOptions {
+        jvmTarget = '18'
+    }
+}
+
+dependencies {
+    kapt libs.hilt.compiler
+    implementation libs.hilt.android
+
+    testImplementation libs.junit4
+    testImplementation libs.androidx.test.ext.junit
+    testImplementation libs.google.truth
+    testImplementation libs.coroutine.test
+    testImplementation libs.turbine
+    testImplementation libs.compose.ui.test
+    testImplementation libs.mock
+    testImplementation libs.mock.webserver
+
+    androidTestImplementation libs.junit4
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.google.truth
+    androidTestImplementation libs.coroutine.test
+    androidTestImplementation libs.turbine
+    androidTestImplementation libs.compose.ui.test
+    androidTestImplementation libs.mock
+    androidTestImplementation libs.mock.webserver
+    androidTestImplementation libs.hilt.testing
+}
