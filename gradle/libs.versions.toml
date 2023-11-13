@@ -28,7 +28,7 @@ turbine-version = "0.7.0"
 app-id = "com.kotlindebolsillo.calorytracker"
 compileSdk = "34"
 minSdk = "24"
-targetSdk = "34"
+targetSdk = "33"
 versionCode = "1"
 versionName = "1.0"
 
@@ -40,6 +40,7 @@ google-material = { module = "com.google.android.material:material", version.ref
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose-version" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-version" }
 compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-version" }
+compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-version"}
 compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose-version" }
 compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "compose-compiler" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-version" }

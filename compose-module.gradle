@@ -36,9 +36,11 @@ android {
     kotlinOptions {
         jvmTarget = '18'
     }
+    packaging { resources.excludes.add("META-INF/*") }
 }
 
 dependencies {
+    implementation libs.appcompat
     implementation libs.compose.compiler
     implementation libs.compose.ui
     implementation libs.compose.tooling.preview
@@ -48,6 +50,8 @@ dependencies {
     implementation libs.compose.navigation
     implementation libs.compose.viewmodel
     implementation libs.compose.activity
+
+    debugImplementation libs.compose.tooling
 
     kapt libs.hilt.compiler
     implementation libs.hilt.android
